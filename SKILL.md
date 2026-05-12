@@ -10,8 +10,9 @@ description: 小红书博主数据爬取。按博主名 + 时间/条数/互动�
 | 平台 | 状态 | 说明 |
 |------|------|------|
 | 小红书 | ✅ | 基于 TikHub API |
-| 抖音 | ❌ | TikHub 不支持，待找 API |
-| 视频号 | ❌ | 无可用 API |
+| 抖音 | ✅ | 基于 TikHub API（需 API Key 有权限） |
+| 视频号 | ✅ | 基于 TikHub API（需 API Key 有权限） |
+| B站 | ✅ | 基于 TikHub API（需 API Key 有权限） |
 
 ## 触发方式
 

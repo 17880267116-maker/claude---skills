@@ -58,9 +58,10 @@ Token 获取：联系 TikHub 官方获取 API Key。
 
 | 平台 | 状态 | 说明 |
 |------|------|------|
-| 小红书 | 支持 | 基于 TikHub API |
-| 抖音 | 不支持 | TikHub 暂不支持 |
-| 视频号 | 不支持 | 无可用 API |
+| 小红书 | ✅ 支持 | 基于 TikHub API |
+| 抖音 | ✅ 支持 | TikHub API（需 Key 有权限） |
+| 视频号 | ✅ 支持 | TikHub API（需 Key 有权限） |
+| B站 | ✅ 支持 | TikHub API（需 Key 有权限） |
 
 **依赖**：
 
