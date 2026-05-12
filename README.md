@@ -1,4 +1,4 @@
-# claude---skills
+# claude-skills
 
 Claude Code 技能集合，让 AI 助手获得专业领域能力。
 
@@ -6,7 +6,7 @@ Claude Code 技能集合，让 AI 助手获得专业领域能力。
 
 ## 已收录技能
 
-### social-crawler — 小红书博主数据爬取
+### social-crawler — 博主数据爬取
 
 定向爬取小红书博主数据，支持多维度筛选，输出 CSV 可直接用 Excel 打开。
 
@@ -22,7 +22,7 @@ Claude Code 技能集合，让 AI 助手获得专业领域能力。
 
 | 参数 | 说明 | 默认值 |
 |------|------|--------|
-| `blogger` | 小红书博主昵称 | 必填 |
+| `blogger` | 博主昵称 | 必填 |
 | `--days` | 最近 N 天 | 30 |
 | `--max` | 最多取 N 条 | 0（不限） |
 | `--min-likes` | 最低点赞数 | 0（不限） |
