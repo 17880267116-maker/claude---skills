@@ -27,6 +27,7 @@ Claude Code 技能集合，让 AI 助手获得专业领域能力。
 | `--max` | 最多取 N 条 | 0（不限） |
 | `--min-likes` | 最低点赞数 | 0（不限） |
 | `--type` | video / normal / all | video |
+| `--token` | TikHub API Token | 自动读取 |
 | `--output` | 输出目录 | ./data |
 
 **返回数据**：
@@ -36,12 +37,22 @@ CSV 文件，包含：标题、文案、点赞、评论、收藏、转发、发�
 **使用示例**：
 
 ```bash
-# 爬取最近 14 天视频，最多 10 条，点赞过 50
-python crawl.py 好运聊AI --days 14 --max 10 --min-likes 50 --type video
+# 首次使用需指定 token
+python crawl.py 好运聊AI --token 你的tikhub_token
 
-# 爬取全部类型笔记
-python crawl.py 好运聊AI --type all
+# 配置好环境变量后可省略
+python crawl.py 好运聊AI --days 14 --max 10 --min-likes 50 --type video
 ```
+
+**API Token 配置（首次使用必读）**：
+
+三种方式任选其一：
+
+1. 命令行参数：`python crawl.py 博主名 --token 你的token`
+2. 环境变量（推荐）：`export TIKHUB_API_TOKEN=你的token`
+3. 配置文件：`~/.xiaohongshu/tikhub_config.json` 写入 `{"api_token": "你的token"}`
+
+Token 获取：联系 TikHub 官方获取 API Key。
 
 **支持平台**：
 

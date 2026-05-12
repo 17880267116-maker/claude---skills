@@ -30,6 +30,7 @@ description: 小红书博主数据爬取。按博主名 + 时间/条数/互动�
 | `--max` | 最多取 N 条 | 0（不限） |
 | `--min-likes` | 最低点赞数 | 0（不限） |
 | `--type` | video / normal / all | video |
+| `--token` | TikHub API Token | 自动读取（见下方说明） |
 | `--output` | 输出目录 | ./data |
 
 ## 返回数据
@@ -52,3 +53,25 @@ CSV 文件，包含：标题、文案、点赞、评论、收藏、转发、发�
 帮我抓 XXX 最近一个月的笔记，只要点赞过100的
 /crawl 好运聊AI --days 14 --max 10 --min-likes 50 --type all
 ```
+
+## API Token 配置
+
+**首次使用必须配置 TikHub API Token**，三种方式任选其一：
+
+**1. 命令行参数**（每次都要带）：
+```bash
+python crawl.py 博主名 --token 你的token
+```
+
+**2. 环境变量**（推荐）：
+```bash
+export TIKHUB_API_TOKEN=你的token
+```
+
+**3. 配置文件**（一次配置永久生效）：
+在 `~/.xiaohongshu/tikhub_config.json` 写入：
+```json
+{"api_token": "你的token"}
+```
+
+Token 获取：联系 TikHub 官方获取 API Key。

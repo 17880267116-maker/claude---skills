@@ -216,8 +216,8 @@ def fetch_details(client, notes, days=30, min_likes=0):
 
 # ────────────────────────────── 主入口 ──────────────────────────────
 
-def crawl(blogger, days=30, max_count=0, min_likes=0, note_type="video", output_dir="."):
-    client = TikHubClient()
+def crawl(blogger, days=30, max_count=0, min_likes=0, note_type="video", output_dir=".", token=None):
+    client = TikHubClient(token=token)
 
     # 1. 定位博主
     user_id, nickname = find_blogger(client, blogger)
@@ -273,11 +273,28 @@ if __name__ == "__main__":
     parser.add_argument("--min-likes", type=int, default=0, help="最低点赞数")
     parser.add_argument("--type", choices=["video", "normal", "all"], default="video", help="笔记类型")
     parser.add_argument("--output", "-o", default="./data", help="输出目录")
+    parser.add_argument("--token", help="TikHub API Token（首次使用必填）")
     args = parser.parse_args()
+
+    # ── Token 检查 ──
+    token = TikHubClient.resolve_token(args.token)
+    if not token:
+        print("\n⚠️  未检测到 TikHub API Token，这是你第一次使用 social-crawler。")
+        print("   请按以下任一方式提供 Token：\n")
+        print("   1. 命令行参数：")
+        print("      python crawl.py 博主名 --token 你的token\n")
+        print("   2. 环境变量（推荐）：")
+        print("      export TIKHUB_API_TOKEN=你的token\n")
+        print("   3. 配置文件：")
+        print("      在 ~/.xiaohongshu/tikhub_config.json 中写入")
+        print('      {"api_token": "你的token"}\n')
+        print("   获取 Token：联系 TikHub 官方获取 API Key。")
+        return
 
     print(f"\n🎯 {args.blogger} | {args.days}天内 | 类型:{args.type} | "
           f"条数:{args.max if args.max else '不限'} | 最低赞:{args.min_likes}")
     print(f"{'='*60}")
 
     crawl(args.blogger, days=args.days, max_count=args.max,
-          min_likes=args.min_likes, note_type=args.type, output_dir=args.output)
+          min_likes=args.min_likes, note_type=args.type, output_dir=args.output,
+          token=token)
